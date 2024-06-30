@@ -3,10 +3,12 @@ const {StatusCodes} = require('http-status-codes');
 
 
 const createProduct = async (req, res) => {
-    res.send('create product')
+
+    const product = await Product.create(req.body)
+    return res.status(201).json({success: true, product})
 }
 
-const getAllProducts = async (Req, res) => {
+const getAllProducts = async (req, res) => {
     res.send('list all products')
 }
 
